@@ -3,6 +3,7 @@ const REINAS_RESTANTES = document.getElementById('restantes')
 const REINAS_COLOCADAS = document.getElementById('colocadas')
 
 var queens = 8
+var placedQueens = []
 
 document.querySelectorAll('td').forEach(
     element => {
@@ -12,8 +13,6 @@ document.querySelectorAll('td').forEach(
 
 function handleClick(event){
     let cell = event.target
-    let {row, column} = getCellLocation(cell)
-
     placeQueenLogic(cell)
 }
 
@@ -23,6 +22,7 @@ function placeQueenLogic(cell){
     else
         placeQueen(cell)
 
+    console.log(placedQueens)
     refreshScore(queens)
     
 }
@@ -31,7 +31,16 @@ function placeQueen(cell){
     if (queens > 8 || queens <= 0)
         return
     cell.classList.add(QUEEN_CLASS)
+    placedQueens.push(getCellLocation(cell))
     queens--
+}
+
+function removeQueen(cell){
+    cell.classList.remove(QUEEN_CLASS)
+
+    let {row, column} = getCellLocation(cell)
+    let index = placedQueens.findIndex((element) => element.row == row && element.column == column)
+    placedQueens.splice(index,1)
 }
 
 
