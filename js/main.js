@@ -8,10 +8,14 @@ var lockedCells = new Set()
 var queens = 8
 var placedQueens = []
 var cells = document.querySelectorAll('td')
+const ocupiedPDiagonals = []
+const ocupiedSDiagonals = []
 
 cells.forEach(
-    element => {
-        element.addEventListener('click', handleClick)
+    cell => {
+        cell.addEventListener('click', handleClick)
+        let {row, column} = getCellLocation(cell)
+        cell.innerText = `(${row},${column})`
     }
 )
 
@@ -58,6 +62,8 @@ function removeQueen(cell){
 function lockQueenMovements(row, column){
     lockColumns(column)
     lockRows(row)
+    lockPrincipalDiagonal(row, column)
+    lockSecondaryDiagonal(row, column)
 }
 
 function lockColumns(column){
@@ -81,6 +87,39 @@ function lockRows(row){
             console.log(lockedCells)
         }
     })
+}
+
+function lockPrincipalDiagonal(row,column){
+    let difference = row - column
+    
+    cells.forEach(cell => {
+        let currentCellDifference = cell.parentElement.rowIndex - cell.cellIndex
+
+        if (difference == currentCellDifference && !cell.classList.contains(QUEEN_CLASS)){
+            cell.classList.add(LOCKED_CLASS)
+            lockedCells.add(cell)
+            console.log(lockedCells)
+        }
+
+    })
+
+    ocupiedPDiagonals.push(difference)
+}
+
+function lockSecondaryDiagonal(row, column){
+    let addition = row + column
+
+    cells.forEach(cell => {
+        let currentCellAddition = cell.parentElement.rowIndex + cell.cellIndex
+
+        if (addition == currentCellAddition && !cell.classList.contains(QUEEN_CLASS)){
+            cell.classList.add(LOCKED_CLASS)
+            lockedCells.add(cell)
+            console.log(lockedCells)
+        }
+
+    })
+    ocupiedSDiagonals.push(addition)
 }
 
 function lockCell(cell){
