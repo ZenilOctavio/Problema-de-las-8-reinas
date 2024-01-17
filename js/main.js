@@ -8,14 +8,12 @@ var lockedCells = new Set()
 var queens = 8
 var placedQueens = []
 var cells = document.querySelectorAll('td')
-const ocupiedPDiagonals = []
-const ocupiedSDiagonals = []
 
 cells.forEach(
     cell => {
         cell.addEventListener('click', handleClick)
         let {row, column} = getCellLocation(cell)
-        cell.innerText = `(${row},${column})`
+        // cell.innerText = `(${row},${column})`
     }
 )
 
@@ -100,8 +98,6 @@ function lockPrincipalDiagonal(row,column){
         }
 
     })
-
-    ocupiedPDiagonals.push(difference)
 }
 
 function lockSecondaryDiagonal(row, column){
@@ -116,7 +112,6 @@ function lockSecondaryDiagonal(row, column){
         }
 
     })
-    ocupiedSDiagonals.push(addition)
 }
 
 function lockCell(cell){
