@@ -43,3 +43,33 @@ tr:nth-child(odd) > td.queen:nth-child(odd), tr:nth-child(even) > td.queen:nth-c
 tr:nth-child(odd) > td.queen:nth-child(even), tr:nth-child(even) > td.queen:nth-child(odd){
     background-image: url('../assets/black_queen.svg');
 }
+
+td.locked{
+    position: relative;
+}
+
+td.locked::after{
+    content: "";
+    position: absolute;
+    width: 0.5rem;
+    height: 100%;
+    border-radius: 0.4rem;
+    background-color: red;
+    top: 0;
+    left: 50%;
+    rotate: -45deg;
+    transform: translate(-50%,-2%)
+}
+
+td.locked::before{
+    content: "";
+    position: absolute;
+    width: 0.5rem;
+    height: 100%;
+    border-radius: 0.4rem;
+    background-color: red;
+    top: 0;
+    right: 50%;
+    rotate: 45deg;
+    transform: translate(50%,-2%)
+}
