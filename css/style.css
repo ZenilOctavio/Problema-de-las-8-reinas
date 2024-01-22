@@ -36,6 +36,10 @@ td:hover{
     scale: 120%;
 }
 
+td.locked{
+    scale: 100%;
+}
+
 tr:nth-child(odd) > td.queen:nth-child(odd), tr:nth-child(even) > td.queen:nth-child(even){
     background-image: url('../assets/white_queen.svg');
 }
