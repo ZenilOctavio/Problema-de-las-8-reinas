@@ -8,5 +8,6 @@ function reset(){
 }
 
 function win(){
-    alert('Encontraste una solución')
+    confetti()
+    window.modal.showModal()
 }

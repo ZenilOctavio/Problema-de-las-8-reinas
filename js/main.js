@@ -36,7 +36,7 @@ function placeQueen(cell){
         return
     if (cell.classList.contains(LOCKED_CLASS))
         return
-
+    cell.classList.remove(AVAILABLE_CLASS)
     cell.classList.add(QUEEN_CLASS)
     let location = getCellLocation(cell)
     placedQueens.push(location)

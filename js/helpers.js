@@ -15,3 +15,11 @@ function log_locked(){
     console.log(`locked secondary diagonals: ${lockedSDiagonals}`)
     console.groupEnd()
 }
+
+function confetti(){
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+      });
+}

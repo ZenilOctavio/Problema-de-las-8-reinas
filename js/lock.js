@@ -61,7 +61,6 @@ function lockSecondaryDiagonal(row, column){
 }
 
 function lockCell(cell){
-    cell.classList.remove(AVAILABLE_CLASS)
     cell.classList.add(LOCKED_CLASS)
 }
 

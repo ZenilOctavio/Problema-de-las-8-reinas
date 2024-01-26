@@ -148,3 +148,31 @@ td.available {
 
     }
 }
+
+:modal{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.5rem;
+    border: 0.3rem solid #25292d;
+}
+
+:modal > button{
+    background-color: #25292d;
+    color: aliceblue;
+    border-radius: 0.5rem;
+    outline: none;
+    border: none;
+    padding: 0.3rem 0.5rem;
+    transition: all ease 0.2s;
+    font-size: large;
+    border: 3px solid aliceblue;
+}
+
+:modal > button:hover{
+    background-color: aliceblue;
+    color: #25292d;
+    border: 3px solid #25292d;
+}
