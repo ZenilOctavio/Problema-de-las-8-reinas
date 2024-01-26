@@ -1,10 +1,10 @@
 var queens = 8
 var placedQueens = []
 var cells = document.querySelectorAll('td')
-var ocupiedPDiagonals = []
-var ocupiedSDiagonals = []
-var ocupiedColumns = []
-var ocupiedRows = []
+var lockedPDiagonals = []
+var lockedSDiagonals = []
+var lockedColumns = []
+var lockedRows = []
 
 cells.forEach(
     cell => {
@@ -43,8 +43,16 @@ function placeQueen(cell){
     lockQueenMovements(location.row, location.column)
     cell.classList.remove(LOCKED_CLASS)
     // lockedCells.delete(cell)
-    log_ocupied()
+    log_locked()
     queens--
+
+    if (queens == 1){
+        markAvailableOnes()
+    }
+
+    if (queens == 0){
+        win()
+    }
 }
 
 
@@ -56,12 +64,14 @@ function removeQueen(cell){
     let index = placedQueens.findIndex((element) => element.row == row && element.column == column)
     placedQueens.splice(index,1)
     unlockQueenMovements(row, column)
-    log_ocupied()
+    log_locked()
     queens++
+    if (queens == 2){
+        unMarkAvailableOnes()
+    }
 }
 
 function refreshScore(value){
-    REINAS_RESTANTES.innerText = `Reinas restantes: ${value}`
-    REINAS_COLOCADAS.innerText = `Reinas colocadas: ${(8-value)}`
-    
+    REINAS_RESTANTES.innerText = `${value}`
+    REINAS_COLOCADAS.innerText = `${(8-value)}`  
 }

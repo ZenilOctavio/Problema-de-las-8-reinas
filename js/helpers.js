@@ -7,11 +7,11 @@ function removeElementFromArray(value, array){
     array.splice(index,1)
 }
 
-function log_ocupied(){
-    console.group('Ocupied')
-    console.log(`Ocupied rows: ${ocupiedRows}`)
-    console.log(`Ocupied columns: ${ocupiedColumns}`)
-    console.log(`Ocupied principal diagonals: ${ocupiedPDiagonals}`)
-    console.log(`Ocupied secondary diagonals: ${ocupiedSDiagonals}`)
+function log_locked(){
+    console.group('locked')
+    console.log(`locked rows: ${lockedRows}`)
+    console.log(`locked columns: ${lockedColumns}`)
+    console.log(`locked principal diagonals: ${lockedPDiagonals}`)
+    console.log(`locked secondary diagonals: ${lockedSDiagonals}`)
     console.groupEnd()
 }

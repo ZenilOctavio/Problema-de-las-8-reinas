@@ -15,7 +15,7 @@ function lockColumn(column){
 
         }
     })
-    ocupiedColumns.push(column)
+    lockedColumns.push(column)
 }
 
 function lockRow(row){
@@ -27,7 +27,7 @@ function lockRow(row){
         }
     })
 
-    ocupiedRows.push(row)
+    lockedRows.push(row)
 }
 
 function lockPrincipalDiagonal(row,column){
@@ -42,7 +42,7 @@ function lockPrincipalDiagonal(row,column){
         }
 
     })
-    ocupiedPDiagonals.push(difference)
+    lockedPDiagonals.push(difference)
 }
 
 function lockSecondaryDiagonal(row, column){
@@ -57,11 +57,26 @@ function lockSecondaryDiagonal(row, column){
         }
 
     })
-    ocupiedSDiagonals.push(addition)
+    lockedSDiagonals.push(addition)
 }
 
 function lockCell(cell){
+    cell.classList.remove(AVAILABLE_CLASS)
     cell.classList.add(LOCKED_CLASS)
-    // lockedCells.add(cell)
-    // console.log(lockedCells)
+}
+
+function markAvailableOnes(){
+    cells.forEach(cell => {
+        if (!cell.classList.contains(LOCKED_CLASS) && !cell.classList.contains(QUEEN_CLASS)){
+            cell.classList.add(AVAILABLE_CLASS)
+        }
+    })
+}
+
+function unMarkAvailableOnes(){
+    cells.forEach(cell => {
+        if (cell.classList.contains(AVAILABLE_CLASS)){
+            cell.classList.remove(AVAILABLE_CLASS)
+        }
+    })
 }

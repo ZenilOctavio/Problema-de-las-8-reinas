@@ -27,8 +27,8 @@ tr:nth-child(even) > td:nth-child(even){
 
 td{
     /* background-image: url('../assets/black_queen.svg'); */
-    width: 5rem;
-    height: 5rem;
+    width: 4rem;
+    height: 4rem;
     transition: all ease-in 0.06s;
 }
 
@@ -76,4 +76,75 @@ td.locked::before{
     right: 50%;
     rotate: 45deg;
     transform: translate(50%,-2%)
+}
+
+
+
+div{
+    width: 9rem;
+    height: 4rem;
+    border-radius: 2rem;
+    background-color: #25292d;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+div > span{
+    flex-grow: 1;
+    text-align: center;
+    color: aliceblue;
+}
+
+div > span:first-child{
+    border-right: 1px solid aliceblue;
+}
+
+svg{
+    height: 4rem;
+    aspect-ratio: 1;
+}
+
+button.reset{
+    width: 3rem;
+    height: 3rem;
+    aspect-ratio: 1;
+    margin-bottom: 1rem;
+    /* background-image: url('../assets/reset.svg'); */
+    background-color: #25292d;
+    border: none;
+    border-radius: 1rem;
+    transition: transform ease 0.1s;
+}
+button.reset:hover{
+    transform: scale(110%);
+
+}
+
+button.reset > svg{
+    height: 2rem;
+    fill: aliceblue;
+    /* background-color: aliceblue; */
+}
+
+td.available {
+    position: absolute;
+    transition: all ease 0.2s;
+    animation: tweak 0.3s infinite;
+    scale: 110%;
+    z-index: 100;
+}
+
+@keyframes tweak {
+    0%{
+        rotate: 5deg;
+    }
+
+    50%{
+        rotate: -5deg;
+    }
+
+    100%{
+        rotate: 5deg;
+
+    }
 }

@@ -6,7 +6,7 @@ function unlockQueenMovements(row, column){
 }
 
 function unlockColumn(column){
-    removeElementFromArray(column, ocupiedColumns)
+    removeElementFromArray(column, lockedColumns)
     cells.forEach(
         cell => {
             if (cell.cellIndex == column)
@@ -16,7 +16,7 @@ function unlockColumn(column){
 }
 
 function unlockRow(row){
-    removeElementFromArray(row, ocupiedRows)
+    removeElementFromArray(row, lockedRows)
     cells.forEach(
         cell => {
             if (cell.parentElement.rowIndex== row)
@@ -27,7 +27,7 @@ function unlockRow(row){
 
 function unlockPrincipalDiagonal(row, column){
     let difference = row - column
-    removeElementFromArray(difference, ocupiedPDiagonals)
+    removeElementFromArray(difference, lockedPDiagonals)
     cells.forEach(
         cell => {
             let currentDifference = cell.parentElement.rowIndex - cell.cellIndex
@@ -39,7 +39,7 @@ function unlockPrincipalDiagonal(row, column){
 
 function unlockSecondaryDiagonal(row, column){
     let addition = row + column
-    removeElementFromArray(addition, ocupiedSDiagonals)
+    removeElementFromArray(addition, lockedSDiagonals)
     cells.forEach(
         cell => {
             let currentAddition = cell.parentElement.rowIndex + cell.cellIndex
@@ -55,10 +55,10 @@ function unlockCell(cell){
     let pDiagonalId = row - column
     let sDiagonalId = row + column
 
-    if (ocupiedPDiagonals.includes(pDiagonalId))    return
-    if (ocupiedSDiagonals.includes(sDiagonalId))    return
-    if (ocupiedColumns.includes(column))    return
-    if (ocupiedRows.includes(row))  return
+    if (lockedPDiagonals.includes(pDiagonalId))    return
+    if (lockedSDiagonals.includes(sDiagonalId))    return
+    if (lockedColumns.includes(column))    return
+    if (lockedRows.includes(row))  return
 
     cell.classList.remove(LOCKED_CLASS)
 
