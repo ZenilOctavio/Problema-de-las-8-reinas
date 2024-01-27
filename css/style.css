@@ -122,6 +122,12 @@ button.reset:hover{
 
 }
 
+button.reset:focus > svg{
+    transition: rotate ease 1s;    
+    rotate: 360deg;
+
+}
+
 button.reset > svg{
     height: 2rem;
     fill: aliceblue;
