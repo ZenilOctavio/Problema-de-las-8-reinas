@@ -3,6 +3,7 @@ function reset(){
         if (cell.classList.contains(QUEEN_CLASS)){
             removeQueen(cell)
         }
+        queens = 8
         refreshScore(queens)
     })
 }
