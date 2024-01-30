@@ -1,0 +1,166 @@
+nav{
+    top: 0;
+    right: 0;
+    translate: 100%;
+    position: fixed;
+    align-self: flex-end;
+    height: 100vh;
+    width: 30rem;
+    position: fixed;
+    background-color: white;
+    border-left: 0.2rem solid #25292d;
+    transition: translate ease 0.3s;
+    padding: 2rem ;
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+nav > label{
+    float: right;
+    align-self: flex-end;
+    position: absolute;
+    top: 10rem;
+    left: -3rem;
+    width: 3rem;
+    height: 3rem;
+    padding: 1rem;
+    background-color: white;
+    border: 0.2rem solid #25292d;
+    border-right: none;
+    border-radius: 2rem 0 0 2rem;
+    transition: right ease 1s;
+}
+
+nav > label:hover{
+    scale: 110%;
+    z-index: -1;
+    transform: translateX(-4%);
+    transition: scale ease .3s, transform ease 0.3s;
+}
+
+nav > input[type="checkbox"]{
+    display: none;
+}
+
+
+nav:has(input[type="checkbox"]:checked){
+    translate: 0%;
+}
+
+input[type="checkbox"]:checked ~ label::before{
+    rotate: -135deg;
+}
+input[type="checkbox"]:checked ~ label::after{
+    rotate: 135deg;
+}
+
+
+nav > label::after{
+    transition: rotate ease 0.5s;
+    position: absolute;
+    content: "";
+    top: 6px;
+    left: 20px;
+    background-color: #25292d;
+    width: 4px;
+    height: 20px;
+    rotate: 45deg;
+    border-radius: 1rem;
+
+}
+nav > label::before{
+    transition: rotate ease 0.5s;
+    position: absolute;
+    content: "";
+    top: 17px;
+    left: 20px;
+    background-color: #25292d;
+    width: 4px;
+    height: 20px;
+    rotate: -45deg;
+    border-radius:1rem;
+}
+
+nav.closed:hover{
+    right: -0.5rem;
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-height: 90vh;
+    overflow-y: scroll;
+    width: 100%;
+    flex-grow: 1;
+}
+
+ul::-webkit-scrollbar {
+    width: 10px;
+}
+  
+ul::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+ul::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 0.5rem;
+
+}
+
+ul::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+li{
+    border-radius: 1rem;
+    background-color: #edeff5;
+    height: 15rem;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 2rem;
+    flex-direction: column;
+}
+
+div:has(button.cargar, button.eliminar){
+    justify-content: space-evenly;
+}
+
+div > button.cargar, div > button.eliminar{
+    background-color: #25292d;
+    border: none;
+    transition: scale ease 0.2s;
+}
+
+div > button.cargar:hover > svg, div > button.eliminar:hover > svg{
+    scale: 110%;
+}
+
+div > button.cargar > svg, div > button.eliminar > svg{
+    fill: aliceblue;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+li > table{
+    margin-top: 1rem;
+    width: 8rem;
+    height: 8rem;
+}
+
+li > table > tbody > tr > td{
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+li > table > tbody > tr > td:hover{
+    scale: 100%;
+}
