@@ -198,6 +198,29 @@ nav{
     border-left: 0.2rem solid #25292d;
     transition: translate ease 0.3s;
     padding: 2rem ;
+    overflow-y: scroll;
+}
+
+/* width */
+nav::-webkit-scrollbar {
+    width: 10px;
+}
+  
+/* Track */
+nav::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+nav::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 0.5rem;
+
+}
+
+/* Handle on hover */
+nav::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 nav > label{
@@ -273,6 +296,7 @@ ul{
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1.5rem;
 }
 
 li{
