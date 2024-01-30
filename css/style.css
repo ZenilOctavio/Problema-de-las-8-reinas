@@ -216,6 +216,13 @@ nav > label{
     transition: right ease 1s;
 }
 
+nav > label:hover{
+    scale: 110%;
+    z-index: -1;
+    transform: translateX(-4%);
+    transition: scale ease .3s, transform ease 0.3s;
+}
+
 nav:has(input[type="checkbox"]:checked){
     translate: 0%;
 }
